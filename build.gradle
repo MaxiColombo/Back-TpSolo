@@ -1,0 +1,61 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.0'
+	id 'io.spring.dependency-management' version '1.1.5'
+}
+
+group = 'com.BACKTP6'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.projectlombok:lombok:1.18.26'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// H2 DATABASE
+	runtimeOnly 'com.h2database:h2'
+
+	// SWAGGER
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.1.0'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+	// https://mvnrepository.com/artifact/org.apache.poi/poi
+	implementation group: 'org.apache.poi', name: 'poi', version: '3.9'
+
+
+	// https://mvnrepository.com/artifact/com.cloudinary/cloudinary
+	implementation 'com.cloudinary:cloudinary-http44:1.36.0'
+	implementation 'com.cloudinary:cloudinary-taglib:1.36.0'
+	implementation 'io.github.cdimascio:dotenv-java:2.2.4'
+	// JSON
+	implementation 'org.json:json:20210307'
+
+	// MAPSTRUCT
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+
+	// LOMBOK
+	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+	compileOnly 'org.projectlombok:lombok'
+
+// https://mvnrepository.com/artifact/com.itextpdf/itext7-core
+	implementation 'com.itextpdf:itext7-core:7.2.4'
+
+	// Mercado Pago
+	implementation('com.mercadopago:sdk-java:2.1.24')
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
